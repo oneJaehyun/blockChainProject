@@ -23,4 +23,5 @@ var walletService = {
     chargeEther: function(walletAddress, callback){
         // TODO 코인 충전 API를 호출합니다.
     }
+    //
 }
