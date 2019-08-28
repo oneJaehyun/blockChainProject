@@ -402,3 +402,7 @@ java.lang.IllegalArgumentException: Invalid character found in the request targe
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:835)
+2019-08-28 13:10:25 [http-nio-8080-exec-3] DEBUG com.bcauction.api.WalletController - 0x4a60FD0580f1ff54412ACe25dDaa3378342685fD
+2019-08-28 13:10:25 [http-nio-8080-exec-3] DEBUG com.bcauction.api.WalletController - 4
+2019-08-28 13:26:48 [http-nio-8080-exec-8] DEBUG com.bcauction.api.WalletController - 0x49bb346adE97E544dF0dd64b97dF14627D61e973
+2019-08-28 13:26:48 [http-nio-8080-exec-8] DEBUG com.bcauction.api.WalletController - 4

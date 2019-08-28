@@ -56,7 +56,7 @@ var walletInfoView = Vue.component('walletInfoView', {
             })
         },
         // 지갑 정보 가져오기
-        fetchWalletInfo: function() {
+        fetchWalletInfo: async function() {
             var scope = this;
 
             walletService.findById(scope.sharedState.user.id, function(wallet) {

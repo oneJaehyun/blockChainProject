@@ -6,9 +6,18 @@ var walletService = {
     },
     findById: function(id, callback) {
         // TODO 지갑 조회 API를 호출합니다.
-        $.get(API_BASE_URL + "/api/wallets/of/" + id, function(data) {
-            console.log(data);
-            callback(data);
+        $.ajax({
+            type: "get",
+            url: API_BASE_URL + "/api/wallets/of/" + id,
+            headers: { 'Content-Type': 'application/json' },
+            success: function(response) {
+                response.status = 200;
+                callback(response)
+            },
+            error: function(response) {
+                response.status = 204;
+                callback(response)
+            }
         });
     },
     isValidPrivateKey: function(id, privateKey, callback) {
@@ -42,6 +51,11 @@ var walletService = {
     createWallet() {
         var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
         return web3.eth.accounts.wallet.create(1);
+
+    },
+    getBalance(id) {
+        var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
+        return web3.eth.getBalance(id);
 
     }
 }
