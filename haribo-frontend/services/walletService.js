@@ -55,6 +55,7 @@ var walletService = {
     },
     getBalance(id) {
         var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
+
         return web3.eth.getBalance(id);
 
     }
