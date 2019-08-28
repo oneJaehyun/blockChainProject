@@ -262,3 +262,143 @@ Verify the connector's configuration, identify and stop any process that's liste
 2019-08-26 14:39:55 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-08-26 14:39:55 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2019-08-26 14:39:55 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-08-28 10:59:53 [main] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 15700 (C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend)
+2019-08-28 10:59:53 [main] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-28 10:59:53 [main] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-28 10:59:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-28 10:59:53 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-28 10:59:53 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-28 10:59:53 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-28 10:59:54 [main] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-28 10:59:54 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-28 10:59:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-28 10:59:54 [main] INFO  com.bcauction.Application - Started Application in 1.46 seconds (JVM running for 2.202)
+2019-08-28 11:00:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-28 11:00:03 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-08-28 11:01:08 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-08-28 11:02:34 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-08-28 11:03:33 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-08-28 11:05:32 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-28 11:05:32 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:05:43 [main] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 17048 (C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend)
+2019-08-28 11:05:43 [main] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-28 11:05:43 [main] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-28 11:05:43 [main] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 18496 (C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend)
+2019-08-28 11:05:43 [main] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-28 11:05:43 [main] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-28 11:05:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-28 11:05:43 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-28 11:05:43 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-28 11:05:44 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-28 11:05:44 [main] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-28 11:05:44 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:05:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-28 11:05:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-28 11:05:44 [main] INFO  com.bcauction.Application - Started Application in 1.632 seconds (JVM running for 2.438)
+2019-08-28 11:05:44 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-28 11:05:44 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-28 11:05:44 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-28 11:05:44 [main] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-28 11:05:45 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:05:45 [main] ERROR o.apache.catalina.util.LifecycleBase - Failed to start component [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.bcauction.Application.main(Application.java:10)
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:455)
+	at java.base/sun.nio.ch.Net.bind(Net.java:447)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:219)
+	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:236)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1103)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1189)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005)
+	... 14 common frames omitted
+2019-08-28 11:05:45 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2019-08-28 11:05:45 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-08-28 11:05:45 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2019-08-28 11:05:45 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:06:12 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-28 11:06:12 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:06:18 [main] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 2140 (C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend)
+2019-08-28 11:06:18 [main] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-28 11:06:18 [main] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-28 11:06:19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-28 11:06:19 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-28 11:06:19 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-28 11:06:19 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-28 11:06:19 [main] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-28 11:06:19 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:06:19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-28 11:06:19 [main] INFO  com.bcauction.Application - Started Application in 1.463 seconds (JVM running for 2.19)
+2019-08-28 11:06:36 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-28 11:06:36 [http-nio-8080-exec-1] ERROR com.zaxxer.hikari.HikariConfig - HikariPool-1 - jdbcUrl is required with driverClassName.
+2019-08-28 11:07:19 [http-nio-8080-exec-2] ERROR com.zaxxer.hikari.HikariConfig - HikariPool-1 - jdbcUrl is required with driverClassName.
+2019-08-28 11:07:24 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-28 11:07:24 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:07:28 [main] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 16472 (C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Documents\blockchain-sub2\haribo-backend)
+2019-08-28 11:07:28 [main] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-28 11:07:28 [main] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-28 11:07:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-28 11:07:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-28 11:07:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-28 11:07:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-28 11:07:29 [main] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-28 11:07:30 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-28 11:07:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-28 11:07:30 [main] INFO  com.bcauction.Application - Started Application in 1.45 seconds (JVM running for 2.174)
+2019-08-28 11:07:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-28 11:07:34 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-08-28 11:07:34 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-08-28 11:19:49 [http-nio-8080-exec-8] DEBUG com.bcauction.api.WalletController - testaddress
+2019-08-28 11:19:49 [http-nio-8080-exec-8] DEBUG com.bcauction.api.WalletController - 4
+2019-08-28 11:59:34 [http-nio-8080-exec-7] DEBUG com.bcauction.api.WalletController - 0x6669bCf464819857A480a01066D144A40A04f89b
+2019-08-28 11:59:34 [http-nio-8080-exec-7] DEBUG com.bcauction.api.WalletController - 1
+2019-08-28 12:01:38 [http-nio-8080-exec-10] DEBUG com.bcauction.api.WalletController - 0x639bD37BEdb2d74CB049B2A77421a5933c3405D2
+2019-08-28 12:01:38 [http-nio-8080-exec-10] DEBUG com.bcauction.api.WalletController - 1
+2019-08-28 12:12:19 [http-nio-8080-exec-4] DEBUG com.bcauction.api.WalletController - 0x543A7f8Bc72b48f44f0426E20506b2A9F7a14748
+2019-08-28 12:12:19 [http-nio-8080-exec-4] DEBUG com.bcauction.api.WalletController - 1
+2019-08-28 12:28:29 [http-nio-8080-exec-5] INFO  o.a.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)

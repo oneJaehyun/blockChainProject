@@ -1,5 +1,5 @@
 var walletCreateView = Vue.component('WalletCreateView', {
-    
+
     template: `
         <div>
             <v-nav></v-nav>
@@ -53,21 +53,20 @@ var walletCreateView = Vue.component('WalletCreateView', {
     },
     methods: {
         // TODO web3 API를 이용하여 내 지갑을 생성합니다.
-        createWallet: async function(){
-           var wallet = await walletService.createWallet();
-           console.log(wallet);
-            this.privateKey = wallet.privateKey;
-            this.walletAddress = wallet.address;
-            this.step = 1; 
-            //
+        createWallet: async function() {
+            var wallet = await walletService.createWallet();
+            console.log(web3.eth.accounts.create());
+            this.privateKey = wallet[0].privateKey;
+            this.walletAddress = wallet[0].address;
+            this.step = 1;
         },
-        saveWallet: function(){
+        saveWallet: function() {
             var scope = this;
 
             walletService.registerWallet(
                 scope.sharedState.user.id,
                 this.walletAddress,
-                function(response){
+                function(response) {
                     alert("지갑 주소가 등록되었습니다.");
 
                     scope.sharedState.user.hasWallet = true;

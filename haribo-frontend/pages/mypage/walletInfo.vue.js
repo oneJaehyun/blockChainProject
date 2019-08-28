@@ -32,40 +32,42 @@ var walletInfoView = Vue.component('walletInfoView', {
     data() {
         return {
             wallet: {
-                id:0,
-                "소유자id":15,
+                id: 0,
+                "소유자id": 15,
                 "주소": "",
                 "잔액": 0,
                 "충전회수": 0
             },
-            isCharging: false,          // 현재 코인을 충전하고 있는 중인지 확인하는 변수
+            isCharging: false, // 현재 코인을 충전하고 있는 중인지 확인하는 변수
             sharedState: store.state
         }
     },
     methods: {
         // ETH 충전하기
-        charge: function(){
+        charge: function() {
             var scope = this;
             scope.isCharging = true;
 
-            walletService.chargeEther(this.wallet['주소'], function(response){
+            walletService.chargeEther(this.wallet['주소'], function(response) {
                 scope.isCharging = false;
-                
+
                 alert("코인이 충전 되었습니다.");
                 scope.fetchWalletInfo();
             })
         },
         // 지갑 정보 가져오기
-        fetchWalletInfo: function(){
+        fetchWalletInfo: function() {
             var scope = this;
 
-            walletService.findById(this.sharedState.user.id, function(data){
-                // TODO API 호출로 지갑 정보를 가져와 보여줍니다. 
+            walletService.findById(scope.sharedState.user.id, function(wallet) {
+                // TODO API 호출로 지갑 정보를 가져와 보여줍니다.
+                scope.wallet = wallet;
                 // web3를 사용하여 잔액을 조회해 보는 것도 포함해보도록 합니다. 
+
             });
         }
     },
-    mounted: function(){
+    mounted: function() {
         this.fetchWalletInfo();
     }
 })
