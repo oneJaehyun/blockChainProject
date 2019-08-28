@@ -62,14 +62,15 @@ var walletInfoView = Vue.component('walletInfoView', {
             walletService.findById(scope.sharedState.user.id, async function(wallet) {
                 // TODO API 호출로 지갑 정보를 가져와 보여줍니다.
                 scope.wallet = wallet;
-                scope.wallet['잔액'] = await web3.eth.getBalance("0x543A7f8Bc72b48f44f0426E20506b2A9F7a14748");
+                // web3를 사용하여 잔액을 조회해 보는 것도 포함해보도록 합니다. 
+                scope.wallet['잔액'] = await walletService.getBalance(wallet['주소']) / 1000000000000000000;
+                console.log(scope.wallet['잔액']);
 
             });
-            // web3를 사용하여 잔액을 조회해 보는 것도 포함해보도록 합니다. 
-
         }
     },
     mounted: function() {
         this.fetchWalletInfo();
+
     }
 })
