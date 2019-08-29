@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
+<<<<<<< HEAD
 import org.web3j.protocol.core.methods.response.EthGetBalance;
+=======
+>>>>>>> 2e85361ab62f34f99cce0ee231bd6b341658d6c5
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
