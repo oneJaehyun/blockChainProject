@@ -1,6 +1,5 @@
 package com.bcauction.application.impl;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -13,7 +12,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.DefaultBlockParameterNumber;
 import org.web3j.protocol.core.methods.response.EthBlock;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
 
@@ -142,7 +140,6 @@ public class EthereumService implements IEthereumService {
 	}
 
 	@Override
-	@Async
 	public BigInteger getEthereumInfromation(String 지갑주소) throws Exception {
 		try {
 			 EthGetBalance a = web3j.ethGetBalance(지갑주소, DefaultBlockParameterName.LATEST).sendAsync().get();
