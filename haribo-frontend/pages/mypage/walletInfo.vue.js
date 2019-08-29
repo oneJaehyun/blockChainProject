@@ -50,7 +50,6 @@ var walletInfoView = Vue.component('walletInfoView', {
 
             walletService.chargeEther(this.wallet['주소'], function(response) {
                 scope.isCharging = false;
-
                 alert("코인이 충전 되었습니다.");
                 scope.fetchWalletInfo();
             })
