@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+
+
+*.log
+# Created by https://www.gitignore.io/api/maven,eclipse,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=maven,eclipse,visualstudiocode
+=======
 *.log
 *./classpath
 *./prefs
@@ -39,6 +46,7 @@ buildNumber.properties
 
 # Created by https://www.gitignore.io/api/eclipse
 # Edit at https://www.gitignore.io/?templates=eclipse
+>>>>>>> 2ee706fba522092c0ac65f9eb0cef209c368a2b6
 
 ### Eclipse ###
 .metadata
@@ -109,4 +117,31 @@ local.properties
 
 .sts4-cache/
 
+<<<<<<< HEAD
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/maven,eclipse,visualstudiocode
+=======
 # End of https://www.gitignore.io/api/eclipse
+>>>>>>> 2ee706fba522092c0ac65f9eb0cef209c368a2b6
