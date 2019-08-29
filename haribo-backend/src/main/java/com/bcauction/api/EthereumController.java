@@ -41,7 +41,6 @@ public class EthereumController {
     public List<Block> 최근블록조회()
     {
         List<Block> 목록 = this.explorerService.최근블록조회();
-
         if (목록 == null || 목록.isEmpty() )
             throw new EmptyListException("NO DATA");
 

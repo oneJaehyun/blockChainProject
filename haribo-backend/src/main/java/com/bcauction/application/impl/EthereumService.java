@@ -8,10 +8,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
+<<<<<<< HEAD
+import org.web3j.protocol.core.methods.response.EthGetBalance;
+=======
+>>>>>>> 2e85361ab62f34f99cce0ee231bd6b341658d6c5
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
@@ -51,7 +56,7 @@ public class EthereumService implements IEthereumService {
 		try {
 			EthBlock latestBlockResponse;
 			latestBlockResponse
-					= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync().get();
+			= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync().get();
 
 			return latestBlockResponse.getBlock();
 		}catch (ExecutionException | InterruptedException e){
@@ -135,6 +140,17 @@ public class EthereumService implements IEthereumService {
 	{
 		// TODO
 		return null;
+	}
+
+	@Override
+	public BigInteger getEthereumInfromation(String 지갑주소) throws Exception {
+		try {
+			 EthGetBalance a = web3j.ethGetBalance(지갑주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+			 BigInteger tmp = new BigInteger("1000000000000000000");
+			 return a.getBalance().divide(tmp);
+		} catch (Exception ex) {
+			throw ex;
+		}
 	}
 
 }
