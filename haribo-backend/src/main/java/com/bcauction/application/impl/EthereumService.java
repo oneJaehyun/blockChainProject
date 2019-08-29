@@ -77,7 +77,7 @@ public class EthereumService implements IEthereumService {
 			EthBlock BlockResponse;
 			for (int i = 20; i >0; i--) {
 				BlockResponse
-				= web3j.ethGetBlockByNumber( (DefaultBlockParameter) (블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
+				= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
 				EthBlock.Block a = BlockResponse.getBlock();
 				list.add(Block.fromOriginalBlock(a));
 			}
@@ -97,7 +97,13 @@ public class EthereumService implements IEthereumService {
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
 		// TODO
-		return null;
+		List<EthereumTransaction> list = new ArrayList<>();
+		EthBlock.Block 블록 = 최근블록(true);
+		for (int i = 0; i < 블록.getTransactions().size(); i++) {
+			list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
+			
+		}
+		return list;
 	}
 
 	/**
@@ -110,7 +116,15 @@ public class EthereumService implements IEthereumService {
 	public Block 블록검색(String 블록No)
 	{
 		// TODO
-		return null;
+		try {
+			EthBlock BlockResponse;
+			BlockResponse
+					= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록No), true).sendAsync().get();
+
+			return Block.fromOriginalBlock(BlockResponse.getBlock());
+		}catch (ExecutionException | InterruptedException e){
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
