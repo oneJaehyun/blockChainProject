@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.Request;
 import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.EthTransaction;
+import org.web3j.protocol.core.methods.response.Transaction;
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
@@ -103,10 +106,10 @@ public class EthereumService implements IEthereumService {
 			for (int i = 0; i < 블록.getTransactions().size(); i++) {
 				list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
 			
-				return list;
 			}
+			return list;
 		} catch (Exception e) {
-			// TODO: handle exception
+			throw new ApplicationException(e.getMessage());
 		}
 			
 	}
@@ -142,7 +145,13 @@ public class EthereumService implements IEthereumService {
 	public EthereumTransaction 트랜잭션검색(String 트랜잭션Hash)
 	{
 		// TODO
-		return null;
+		try {
+			EthTransaction txe = web3j.ethGetTransactionByHash(트랜잭션Hash).sendAsync().get();
+			EthereumTransaction 트랜잭션 = EthereumTransaction.convertTransaction(txe.getResult());
+			return 트랜잭션;
+		} catch (Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
