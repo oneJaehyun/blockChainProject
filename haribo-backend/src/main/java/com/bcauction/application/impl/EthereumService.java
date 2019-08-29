@@ -1,37 +1,24 @@
 package com.bcauction.application.impl;
 
-import com.bcauction.application.IEthereumService;
-import com.bcauction.domain.*;
-import com.bcauction.domain.exception.ApplicationException;
-import com.bcauction.domain.repository.ITransactionRepository;
-import com.bcauction.domain.wrapper.Block;
-import com.bcauction.domain.wrapper.EthereumTransaction;
+import java.math.BigInteger;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.admin.Admin;
-import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.DefaultBlockParameterNumber;
-import org.web3j.protocol.core.methods.response.*;
-import org.web3j.protocol.exceptions.TransactionException;
-import org.web3j.tx.Transfer;
-import org.web3j.utils.Convert;
+import org.web3j.protocol.core.methods.response.EthBlock;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import com.bcauction.application.IEthereumService;
+import com.bcauction.domain.Address;
+import com.bcauction.domain.exception.ApplicationException;
+import com.bcauction.domain.repository.ITransactionRepository;
+import com.bcauction.domain.wrapper.Block;
+import com.bcauction.domain.wrapper.EthereumTransaction;
 
 @Service
 public class EthereumService implements IEthereumService {

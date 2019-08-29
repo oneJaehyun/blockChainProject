@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Built-By: multicampus
-Build-Jdk: 12.0.1
+Build-Jdk: 11.0.4
 Implementation-Title: haribo
 Implementation-Version: 1.0.0
 Implementation-Vendor-Id: com.bcauction

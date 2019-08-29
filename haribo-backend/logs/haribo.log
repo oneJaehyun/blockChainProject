@@ -3566,3 +3566,47 @@ java.lang.IllegalArgumentException: Invalid character found in the request targe
 2019-08-29 13:15:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 2019-08-29 13:15:28 [restartedMain] INFO  com.bcauction.Application - Started Application in 0.687 seconds (JVM running for 8425.09)
 2019-08-29 13:15:28 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-08-29 13:33:29 [Thread-600] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-29 13:33:30 [restartedMain] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 22340 (C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend)
+2019-08-29 13:33:30 [restartedMain] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-29 13:33:30 [restartedMain] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-29 13:33:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-29 13:33:31 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-29 13:33:31 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-29 13:33:31 [restartedMain] INFO  o.a.c.c.C.[Tomcat-6].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-29 13:33:31 [restartedMain] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-29 13:33:31 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-29 13:33:31 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-08-29 13:33:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-29 13:33:31 [restartedMain] INFO  com.bcauction.Application - Started Application in 0.459 seconds (JVM running for 9508.356)
+2019-08-29 13:33:31 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-08-29 13:33:33 [Thread-611] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-29 13:33:35 [restartedMain] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 22340 (C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend)
+2019-08-29 13:33:35 [restartedMain] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-29 13:33:35 [restartedMain] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-29 13:33:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-29 13:33:35 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-29 13:33:35 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-29 13:33:35 [restartedMain] INFO  o.a.c.c.C.[Tomcat-6].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-29 13:33:35 [restartedMain] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-29 13:33:35 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-29 13:33:35 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-08-29 13:33:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-29 13:33:35 [restartedMain] INFO  com.bcauction.Application - Started Application in 0.545 seconds (JVM running for 9512.652)
+2019-08-29 13:33:35 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-08-29 14:14:06 [Thread-619] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-29 14:14:06 [restartedMain] INFO  com.bcauction.Application - Starting Application on DESKTOP-KVCQHCD with PID 22340 (C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend\target\classes started by multicampus in C:\Users\multicampus\Desktop\blockchain-sub2\haribo-backend)
+2019-08-29 14:14:06 [restartedMain] DEBUG com.bcauction.Application - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-08-29 14:14:06 [restartedMain] INFO  com.bcauction.Application - No active profile set, falling back to default profiles: default
+2019-08-29 14:14:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-08-29 14:14:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-29 14:14:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-08-29 14:14:07 [restartedMain] INFO  o.a.c.c.C.[Tomcat-6].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-29 14:14:07 [restartedMain] INFO  c.b.a.impl.EthBlockListeningService - New Block Subscribed Here
+2019-08-29 14:14:07 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-29 14:14:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-08-29 14:14:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-08-29 14:14:07 [restartedMain] INFO  com.bcauction.Application - Started Application in 0.369 seconds (JVM running for 11944.247)
+2019-08-29 14:14:07 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-08-29 14:14:11 [RMI TCP Connection(202)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-29 14:14:11 [RMI TCP Connection(202)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
