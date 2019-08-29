@@ -1,5 +1,7 @@
 package com.bcauction.application.impl;
 
+//패브릭
+
 import com.bcauction.application.IFabricCCService;
 import com.bcauction.domain.CommonUtil;
 import com.bcauction.domain.FabricAsset;
