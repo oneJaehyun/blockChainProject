@@ -97,13 +97,18 @@ public class EthereumService implements IEthereumService {
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
 		// TODO
-		List<EthereumTransaction> list = new ArrayList<>();
-		EthBlock.Block 블록 = 최근블록(true);
-		for (int i = 0; i < 블록.getTransactions().size(); i++) {
-			list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
+		try {
+			List<EthereumTransaction> list = new ArrayList<>();
+			EthBlock.Block 블록 = 최근블록(true);
+			for (int i = 0; i < 블록.getTransactions().size(); i++) {
+				list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
 			
+				return list;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		return list;
+			
 	}
 
 	/**
