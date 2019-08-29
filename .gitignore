@@ -1,8 +1,52 @@
+<<<<<<< HEAD
 
 
 *.log
 # Created by https://www.gitignore.io/api/maven,eclipse,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=maven,eclipse,visualstudiocode
+=======
+*.log
+*./classpath
+*./prefs
+*./project
+
+# Created by https://www.gitignore.io/api/vue
+# Edit at https://www.gitignore.io/?templates=vue
+
+### Vue ###
+# gitignore template for Vue.js projects
+#
+# Recommended template: Node.gitignore
+
+# TODO: where does this rule come from?
+docs/_book
+
+# TODO: where does this rule come from?
+test/
+
+# End of https://www.gitignore.io/api/vue
+
+# Created by https://www.gitignore.io/api/maven
+# Edit at https://www.gitignore.io/?templates=maven
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# End of https://www.gitignore.io/api/maven
+
+
+# Created by https://www.gitignore.io/api/eclipse
+# Edit at https://www.gitignore.io/?templates=eclipse
+>>>>>>> 2ee706fba522092c0ac65f9eb0cef209c368a2b6
 
 ### Eclipse ###
 .metadata
@@ -73,6 +117,7 @@ local.properties
 
 .sts4-cache/
 
+<<<<<<< HEAD
 ### Maven ###
 target/
 pom.xml.tag
@@ -97,3 +142,6 @@ buildNumber.properties
 .history
 
 # End of https://www.gitignore.io/api/maven,eclipse,visualstudiocode
+=======
+# End of https://www.gitignore.io/api/eclipse
+>>>>>>> 2ee706fba522092c0ac65f9eb0cef209c368a2b6
