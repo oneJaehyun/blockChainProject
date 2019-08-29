@@ -47,6 +47,19 @@ var walletService = {
     },
     chargeEther: function(walletAddress, callback) {
         // TODO 코인 충전 API를 호출합니다.
+        var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
+        web3.eth.personal.unlockAccount("0xe5ed3d107634891df48642e3ad73f0ef7d65b456", "Seokwoo", 600)
+            .then(console.log('Account unlocked!'));
+        web3.eth.sendTransaction({ from: "0xe5ed3d107634891df48642e3ad73f0ef7d65b456", to: walletAddress, value: web3.utils.toWei('5', "ether") },
+            function(error, hash) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    callback(hash);
+                }
+            }
+        )
+
     },
     createWallet() {
         var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
@@ -55,7 +68,6 @@ var walletService = {
     },
     getBalance(id) {
         var web3 = new Web3(new Web3.providers.HttpProvider(BLOCKCHAIN_URL));
-
         return web3.eth.getBalance(id);
 
     }
