@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -53,7 +54,18 @@ public class WalletService implements IWalletService
 		 * 	잔액정보가 다를 경우 정보를 갱신하여 반환한다.
 		 * 	ethereumService.java에 추가 메소드를 구현하는 것을 권장한다.
 		 */
-
+		try {
+			BigDecimal ethBalance = new BigDecimal(ethereumService.getEthereumInfromation(지갑주소));			
+			if(!ethBalance.equals(wallet.get잔액())) {
+				System.out.println(ethBalance + " " + wallet.get잔액());
+				walletRepository.잔액갱신(지갑주소, ethBalance);
+				wallet.set잔액(ethBalance);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return wallet;
 	}
 

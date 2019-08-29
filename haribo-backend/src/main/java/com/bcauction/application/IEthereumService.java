@@ -4,7 +4,9 @@ import com.bcauction.domain.Address;
 import com.bcauction.domain.wrapper.Block;
 import com.bcauction.domain.wrapper.EthereumTransaction;
 
+import java.math.BigInteger;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public interface IEthereumService {
     List<Block> 최근블록조회();
@@ -16,4 +18,5 @@ public interface IEthereumService {
     String 충전(String 주소);
 
     Address 주소검색(String 주소);
+    BigInteger getEthereumInfromation(String 지갑주소) throws Exception;
 }
