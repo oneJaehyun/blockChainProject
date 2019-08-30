@@ -16,9 +16,12 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.Request;
+import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.core.methods.response.EthBlock;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
+
 import org.web3j.protocol.core.methods.response.EthTransaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Transfer;
@@ -31,7 +34,7 @@ import com.bcauction.domain.exception.ApplicationException;
 import com.bcauction.domain.repository.ITransactionRepository;
 import com.bcauction.domain.wrapper.Block;
 import com.bcauction.domain.wrapper.EthereumTransaction;
-
+//시퀀스다이어그램 참고해서 구현하기!!
 @Service
 public class EthereumService implements IEthereumService {
 
@@ -102,7 +105,7 @@ public class EthereumService implements IEthereumService {
 	 * 최근 생성된 블록에 포함된 트랜잭션 조회
 	 * 이더리움 트랜잭션을 EthereumTransaction으로 변환해야 한다.
 	 * @return List<EthereumTransaction>
-	 */
+	 */                                                                                                                                           
 	@Override
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
@@ -165,7 +168,7 @@ public class EthereumService implements IEthereumService {
 	/**
 	 * 이더리움으로부터 해당 주소의 잔액을 조회하고
 	 * 동기화한 트랜잭션 테이블로부터 Address 정보의 trans 필드를 완성하여
-	 * 정보를 반환한다.
+	 * 정보를 반환한다.~~
 	 * @param 주소
 	 * @return Address
 	 */
@@ -193,6 +196,7 @@ public class EthereumService implements IEthereumService {
 	@Override
 	public String 충전(final String 주소) // 특정 주소로 테스트 특정 양(5Eth) 만큼 충전해준다.
 	{
+
 		// TODO
         try {
         	Credentials credentials = CommonUtil.getCredential(ADMIN_WALLET_FILE, PASSWORD);
@@ -202,6 +206,7 @@ public class EthereumService implements IEthereumService {
             e.printStackTrace();
             return null;
         }
+
 	}
 
 	@Override
