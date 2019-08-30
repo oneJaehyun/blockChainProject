@@ -3,6 +3,8 @@ package com.bcauction.application.impl;
 import com.bcauction.domain.EthInfo;
 import com.bcauction.domain.repository.IEthInfoRepository;
 import com.bcauction.domain.repository.ITransactionRepository;
+import com.bcauction.domain.wrapper.EthereumTransaction;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
+import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.Transaction;
 
 import javax.annotation.PostConstruct;
 import java.math.BigInteger;
@@ -52,6 +56,15 @@ public class EthBlockListeningService
 	public void listen()
 	{
 		// TODO
+		try {
+			EthBlock latestBlockResponse;
+			latestBlockResponse
+			= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, true).sendAsync().get();
+			ethInfoRepository.put(ethUrl, String.valueOf(latestBlockResponse.getBlock().getNumber()));
+			
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		}
 		log.info("New Block Subscribed Here");
 	}
 }

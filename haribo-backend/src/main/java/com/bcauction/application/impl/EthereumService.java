@@ -1,6 +1,8 @@
 package com.bcauction.application.impl;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -8,18 +10,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
-<<<<<<< HEAD
 import org.web3j.protocol.core.methods.response.EthGetBalance;
-=======
->>>>>>> 2e85361ab62f34f99cce0ee231bd6b341658d6c5
+import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
+import org.web3j.protocol.core.methods.response.EthTransaction;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.tx.Transfer;
+import org.web3j.utils.Convert;
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
+import com.bcauction.domain.CommonUtil;
 import com.bcauction.domain.exception.ApplicationException;
 import com.bcauction.domain.repository.ITransactionRepository;
 import com.bcauction.domain.wrapper.Block;
@@ -73,7 +79,22 @@ public class EthereumService implements IEthereumService {
 	public List<Block> 최근블록조회()
 	{
 		// TODO
-		return null;
+		List<Block> list = new ArrayList<>();
+		EthBlock.Block 블록 = 최근블록(true);
+		System.out.println(최근블록(true));
+		try {
+			EthBlock BlockResponse;
+			for (int i = 20; i >0; i--) {
+				BlockResponse
+				= web3j.ethGetBlockByNumber(DefaultBlockParameter.valueOf(블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
+				EthBlock.Block a = BlockResponse.getBlock();
+				list.add(Block.fromOriginalBlock(a));
+			}
+
+			return list;
+		}catch (ExecutionException | InterruptedException e){
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -85,6 +106,17 @@ public class EthereumService implements IEthereumService {
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
 		// TODO
+		try {
+			List<EthereumTransaction> list = new ArrayList<>();
+			EthBlock.Block 블록 = 최근블록(true);
+			for (int i = 0; i < 블록.getTransactions().size(); i++) {
+				list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
+			
+				return list;
+			}
+		} catch (Exception e) {
+		}
+
 		return null;
 	}
 
@@ -98,7 +130,16 @@ public class EthereumService implements IEthereumService {
 	public Block 블록검색(String 블록No)
 	{
 		// TODO
-		return null;
+		try {
+			EthBlock BlockResponse;
+			BlockResponse
+					= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록No), true).sendAsync().get();
+
+			return Block.fromOriginalBlock(BlockResponse.getBlock());
+		}catch (ExecutionException | InterruptedException e){
+			throw new ApplicationException(e.getMessage());
+		}
+
 	}
 
 	/**
@@ -111,7 +152,13 @@ public class EthereumService implements IEthereumService {
 	public EthereumTransaction 트랜잭션검색(String 트랜잭션Hash)
 	{
 		// TODO
-		return null;
+		try {
+			EthTransaction txe = web3j.ethGetTransactionByHash(트랜잭션Hash).sendAsync().get();
+			EthereumTransaction 트랜잭션 = EthereumTransaction.convertTransaction(txe.getResult());
+			return 트랜잭션;
+		} catch (Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -125,6 +172,13 @@ public class EthereumService implements IEthereumService {
 	public Address 주소검색(String 주소)
 	{
 		// TODO
+		
+		try {
+			EthGetBalance balance =web3j.ethGetBalance(주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+			EthGetTransactionCount txCount = web3j.ethGetTransactionCount(주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+		} catch (ExecutionException | InterruptedException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -139,7 +193,14 @@ public class EthereumService implements IEthereumService {
 	public String 충전(final String 주소) // 특정 주소로 테스트 특정 양(5Eth) 만큼 충전해준다.
 	{
 		// TODO
-		return null;
+        try {
+        	Credentials credentials = CommonUtil.getCredential(ADMIN_WALLET_FILE, PASSWORD);
+            TransactionReceipt transactionReceipt = Transfer.sendFunds(web3j, credentials, 주소, BigDecimal.valueOf(5.0), Convert.Unit.ETHER).send();
+            return transactionReceipt.getTransactionHash();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 	}
 
 	@Override
