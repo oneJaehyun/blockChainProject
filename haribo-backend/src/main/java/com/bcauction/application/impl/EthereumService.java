@@ -160,7 +160,7 @@ public class EthereumService implements IEthereumService {
 			throw new ApplicationException(e.getMessage());
 		}
 	}
-
+	// 
 	/**
 	 * 이더리움으로부터 해당 주소의 잔액을 조회하고
 	 * 동기화한 트랜잭션 테이블로부터 Address 정보의 trans 필드를 완성하여
