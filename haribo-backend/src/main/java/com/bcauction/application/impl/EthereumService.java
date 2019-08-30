@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
-<<<<<<< HEAD
 import org.web3j.protocol.core.methods.response.EthGetBalance;
-=======
->>>>>>> 2e85361ab62f34f99cce0ee231bd6b341658d6c5
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
@@ -45,93 +42,86 @@ public class EthereumService implements IEthereumService {
 	@Autowired
 	private Web3j web3j;
 
-
 	@Autowired
 	public EthereumService(ITransactionRepository transactionRepository) {
 		this.transactionRepository = transactionRepository;
 	}
 
-	private EthBlock.Block 최근블록(final boolean fullFetched)
-	{
+	private EthBlock.Block 최근블록(final boolean fullFetched) {
 		try {
 			EthBlock latestBlockResponse;
-			latestBlockResponse
-			= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync().get();
+			latestBlockResponse = web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync()
+					.get();
 
 			return latestBlockResponse.getBlock();
-		}catch (ExecutionException | InterruptedException e){
+		} catch (ExecutionException | InterruptedException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 	}
 
 	/**
-	 * 최근 블록 조회
-	 * 예) 최근 20개의 블록 조회
+	 * 최근 블록 조회 예) 최근 20개의 블록 조회
+	 * 
 	 * @return List<Block>
 	 */
 	@Override
-	public List<Block> 최근블록조회()
-	{
+	public List<Block> 최근블록조회() {
 		// TODO
 		return null;
 	}
 
 	/**
-	 * 최근 생성된 블록에 포함된 트랜잭션 조회
-	 * 이더리움 트랜잭션을 EthereumTransaction으로 변환해야 한다.
+	 * 최근 생성된 블록에 포함된 트랜잭션 조회 이더리움 트랜잭션을 EthereumTransaction으로 변환해야 한다.
+	 * 
 	 * @return List<EthereumTransaction>
 	 */
 	@Override
-	public List<EthereumTransaction> 최근트랜잭션조회()
-	{
+	public List<EthereumTransaction> 최근트랜잭션조회() {
 		// TODO
 		return null;
 	}
 
 	/**
-	 * 특정 블록 검색
-	 * 조회한 블록을 Block으로 변환해야 한다.
+	 * 특정 블록 검색 조회한 블록을 Block으로 변환해야 한다.
+	 * 
 	 * @param 블록No
 	 * @return Block
 	 */
 	@Override
-	public Block 블록검색(String 블록No)
-	{
+	public Block 블록검색(String 블록No) {
 		// TODO
 		return null;
 	}
 
 	/**
-	 * 특정 hash 값을 갖는 트랜잭션 검색
-	 * 조회한 트랜잭션을 EthereumTransaction으로 변환해야 한다.
+	 * 특정 hash 값을 갖는 트랜잭션 검색 조회한 트랜잭션을 EthereumTransaction으로 변환해야 한다.
+	 * 
 	 * @param 트랜잭션Hash
 	 * @return EthereumTransaction
 	 */
 	@Override
-	public EthereumTransaction 트랜잭션검색(String 트랜잭션Hash)
-	{
+	public EthereumTransaction 트랜잭션검색(String 트랜잭션Hash) {
 		// TODO
 		return null;
 	}
 
 	/**
-	 * 이더리움으로부터 해당 주소의 잔액을 조회하고
-	 * 동기화한 트랜잭션 테이블로부터 Address 정보의 trans 필드를 완성하여
-	 * 정보를 반환한다.
+	 * 이더리움으로부터 해당 주소의 잔액을 조회하고 동기화한 트랜잭션 테이블로부터 Address 정보의 trans 필드를 완성하여 정보를
+	 * 반환한다.
+	 * 
 	 * @param 주소
 	 * @return Address
 	 */
 	@Override
-	public Address 주소검색(String 주소)
-	{
+	public Address 주소검색(String 주소) {
 		// TODO
 		return null;
 	}
 
 	/**
-	 * [주소]로 시스템에서 정한 양 만큼 이더를 송금한다.
-	 * 이더를 송금하는 트랜잭션을 생성, 전송한 후 결과인
-	 * String형의 트랜잭션 hash 값을 반환한다.
+	 * [주소]로 시스템에서 정한 양 만큼 이더를 송금한다. 이더를 송금하는 트랜잭션을 생성, 전송한 후 결과인 String형의 트랜잭션 hash
+	 * 값을 반환한다.
+	 * 
 	 * @param 주소
 	 * @return String 생성된 트랜잭션의 hash 반환 (참고, TransactionReceipt)
 	 */
@@ -145,9 +135,9 @@ public class EthereumService implements IEthereumService {
 	@Override
 	public BigInteger getEthereumInfromation(String 지갑주소) throws Exception {
 		try {
-			 EthGetBalance a = web3j.ethGetBalance(지갑주소, DefaultBlockParameterName.LATEST).sendAsync().get();
-			 BigInteger tmp = new BigInteger("1000000000000000000");
-			 return a.getBalance().divide(tmp);
+			EthGetBalance a = web3j.ethGetBalance(지갑주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+			BigInteger tmp = new BigInteger("1000000000000000000");
+			return a.getBalance().divide(tmp);
 		} catch (Exception ex) {
 			throw ex;
 		}
