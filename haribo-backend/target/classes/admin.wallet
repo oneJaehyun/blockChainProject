@@ -1,1 +1,1 @@
-(TODO 이곳에 json 형태의 키스토어 정보를 입력 후 이 문장을 지우세요.)
+{"address":"e5ed3d107634891df48642e3ad73f0ef7d65b456","crypto":{"cipher":"aes-128-ctr","ciphertext":"d4deedec08f16d45f8e5e3d4c6f05f64327a2670b3f9bae9f1d090fe7ca18118","cipherparams":{"iv":"fa23231d453cf49c45efa36d1b444e58"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"406b5d4f63c979785a3a2fbb94c276db509f5668f350e475a90ff30188504a59"},"mac":"970607cf0abbffc85d50b4cf52c961b4b550ae6f9acc3f2022b73f291888f479"},"id":"cd9252a8-9723-49db-889d-27a2462f803d","version":3}

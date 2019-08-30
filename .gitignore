@@ -1,4 +1,8 @@
-
+# Directories #
+/build/
+/bin/
+target/
+*.class
 *.log
 *./classpath
 *./prefs
