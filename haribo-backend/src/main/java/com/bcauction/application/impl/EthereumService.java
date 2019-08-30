@@ -1,37 +1,29 @@
 package com.bcauction.application.impl;
 
-import com.bcauction.application.IEthereumService;
-import com.bcauction.domain.*;
-import com.bcauction.domain.exception.ApplicationException;
-import com.bcauction.domain.repository.ITransactionRepository;
-import com.bcauction.domain.wrapper.Block;
-import com.bcauction.domain.wrapper.EthereumTransaction;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.admin.Admin;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.DefaultBlockParameterNumber;
-import org.web3j.protocol.core.methods.response.*;
-import org.web3j.protocol.exceptions.TransactionException;
-import org.web3j.tx.Transfer;
-import org.web3j.utils.Convert;
+import org.web3j.protocol.core.Request;
+import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.EthTransaction;
+import org.web3j.protocol.core.methods.response.Transaction;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import com.bcauction.application.IEthereumService;
+import com.bcauction.domain.Address;
+import com.bcauction.domain.exception.ApplicationException;
+import com.bcauction.domain.repository.ITransactionRepository;
+import com.bcauction.domain.wrapper.Block;
+import com.bcauction.domain.wrapper.EthereumTransaction;
 
 @Service
 public class EthereumService implements IEthereumService {
@@ -81,7 +73,22 @@ public class EthereumService implements IEthereumService {
 	public List<Block> 최근블록조회()
 	{
 		// TODO
-		return null;
+		List<Block> list = new ArrayList<>();
+		EthBlock.Block 블록 = 최근블록(true);
+		System.out.println(최근블록(true));
+		try {
+			EthBlock BlockResponse;
+			for (int i = 20; i >0; i--) {
+				BlockResponse
+				= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
+				EthBlock.Block a = BlockResponse.getBlock();
+				list.add(Block.fromOriginalBlock(a));
+			}
+
+			return list;
+		}catch (ExecutionException | InterruptedException e){
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -93,7 +100,18 @@ public class EthereumService implements IEthereumService {
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
 		// TODO
-		return null;
+		try {
+			List<EthereumTransaction> list = new ArrayList<>();
+			EthBlock.Block 블록 = 최근블록(true);
+			for (int i = 0; i < 블록.getTransactions().size(); i++) {
+				list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
+			
+			}
+			return list;
+		} catch (Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
+			
 	}
 
 	/**
@@ -106,7 +124,15 @@ public class EthereumService implements IEthereumService {
 	public Block 블록검색(String 블록No)
 	{
 		// TODO
-		return null;
+		try {
+			EthBlock BlockResponse;
+			BlockResponse
+					= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록No), true).sendAsync().get();
+
+			return Block.fromOriginalBlock(BlockResponse.getBlock());
+		}catch (ExecutionException | InterruptedException e){
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -119,7 +145,13 @@ public class EthereumService implements IEthereumService {
 	public EthereumTransaction 트랜잭션검색(String 트랜잭션Hash)
 	{
 		// TODO
-		return null;
+		try {
+			EthTransaction txe = web3j.ethGetTransactionByHash(트랜잭션Hash).sendAsync().get();
+			EthereumTransaction 트랜잭션 = EthereumTransaction.convertTransaction(txe.getResult());
+			return 트랜잭션;
+		} catch (Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	/**
