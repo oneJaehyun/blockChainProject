@@ -21,14 +21,11 @@ import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.core.methods.response.EthBlock;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
-<<<<<<< HEAD
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
-=======
+
 import org.web3j.protocol.core.methods.response.EthTransaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
->>>>>>> 36d1d8235713e33e2e0e2d06c6031bfa38e150aa
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
@@ -37,7 +34,7 @@ import com.bcauction.domain.exception.ApplicationException;
 import com.bcauction.domain.repository.ITransactionRepository;
 import com.bcauction.domain.wrapper.Block;
 import com.bcauction.domain.wrapper.EthereumTransaction;
-//시퀀스다이어그램 참고해서 구현하기
+//시퀀스다이어그램 참고해서 구현하기!!
 @Service
 public class EthereumService implements IEthereumService {
 
@@ -199,9 +196,7 @@ public class EthereumService implements IEthereumService {
 	@Override
 	public String 충전(final String 주소) // 특정 주소로 테스트 특정 양(5Eth) 만큼 충전해준다.
 	{
-<<<<<<< HEAD
-        return null;
-=======
+
 		// TODO
         try {
         	Credentials credentials = CommonUtil.getCredential(ADMIN_WALLET_FILE, PASSWORD);
@@ -211,7 +206,7 @@ public class EthereumService implements IEthereumService {
             e.printStackTrace();
             return null;
         }
->>>>>>> 36d1d8235713e33e2e0e2d06c6031bfa38e150aa
+
 	}
 
 	@Override
