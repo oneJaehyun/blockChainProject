@@ -1,5 +1,6 @@
 package com.bcauction.application.impl;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -10,16 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlock;
-<<<<<<< HEAD
 import org.web3j.protocol.core.methods.response.EthGetBalance;
-=======
->>>>>>> 2e85361ab62f34f99cce0ee231bd6b341658d6c5
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.tx.Transfer;
+import org.web3j.utils.Convert;
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
+import com.bcauction.domain.CommonUtil;
 import com.bcauction.domain.exception.ApplicationException;
 import com.bcauction.domain.repository.ITransactionRepository;
 import com.bcauction.domain.wrapper.Block;
@@ -138,8 +142,18 @@ public class EthereumService implements IEthereumService {
 	@Override
 	public String 충전(final String 주소) // 특정 주소로 테스트 특정 양(5Eth) 만큼 충전해준다.
 	{
-		// TODO
+		
+		Credentials credentials = CommonUtil.getCredential(ADMIN_WALLET_FILE, PASSWORD);
+		try {
+			TransactionReceipt transactionReceipt = Transfer.sendFunds(web3j, credentials, 주소, BigDecimal.valueOf(5.0), Convert.Unit.ETHER).send();
+			return transactionReceipt.getTransactionHash();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
+		
+	
 	}
 
 	@Override
