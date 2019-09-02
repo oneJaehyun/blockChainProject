@@ -45,6 +45,7 @@ public class FabricCCService implements IFabricCCService
 
 	/**
 	 * 패브릭 네트워크를 이용하기 위한 정보
+	 * 패브릭 공부
 	 */
 	@Value("${fabric.ca-server.url}")
 	private String CA_SERVER_URL;
