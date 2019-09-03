@@ -18,7 +18,7 @@ import java.util.List;
 public class DigitalWorkService implements IDigitalWorkService
 {
 	public static final Logger logger = LoggerFactory.getLogger(DigitalWorkService.class);
-
+	//구조파악중
 	private IDigitalWorkRepository digitalWorkRepository;
 	private IFabricService fabricService;
 
