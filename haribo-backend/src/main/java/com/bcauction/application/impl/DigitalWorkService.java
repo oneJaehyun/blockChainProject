@@ -56,7 +56,7 @@ public class DigitalWorkService implements IDigitalWorkService
 	@Override
 	public DigitalWork 작품등록(final DigitalWork 작품) {
 		// TODO
-		return null;
+		return this.조회(this.digitalWorkRepository.추가(작품));
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class DigitalWorkService implements IDigitalWorkService
 	public DigitalWork 작품삭제(final long id)
 	{
 		// TODO
-		return null;
+		return this.조회(this.digitalWorkRepository.삭제(id));
 	}
 
 	@Override
