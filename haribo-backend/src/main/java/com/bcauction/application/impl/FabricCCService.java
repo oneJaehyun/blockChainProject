@@ -87,7 +87,6 @@ public class FabricCCService implements IFabricCCService
 	 */
 	private void loadChannel(){
 		// TODO
-		
 	}
 
 	private Properties getPropertiesWith(String filename) {
