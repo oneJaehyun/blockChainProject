@@ -114,7 +114,7 @@ local.properties
 
 .sts4-cache/
 
-<<<<<<< HEAD
+
 ### Maven ###
 target/
 pom.xml.tag
@@ -140,7 +140,8 @@ buildNumber.properties
 
 # End of https://www.gitignore.io/api/maven,eclipse,visualstudiocode
 =======
-# End of https://www.gitignore.io/api/eclipse
->>>>>>> 2ee706fba522092c0ac65f9eb0cef209c368a2b6
+# End of https://www.gitignore.io/api/eclipse6
 haribo-backend/logs/haribo.log~feature_walletFix
 *.gz
+haribo-backend/logs/haribo.log.2019-09-03.0.gz
+
