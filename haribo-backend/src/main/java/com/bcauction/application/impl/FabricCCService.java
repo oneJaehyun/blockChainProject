@@ -142,7 +142,7 @@ public class FabricCCService implements IFabricCCService
 	public FabricAsset registerOwnership(final long 소유자, final long 작품id){
 		if(this.channel == null)
 			loadChannel();
-
+		
 		boolean res = registerAsset(작품id, 소유자);
 		if(!res)
 			return null;
@@ -206,6 +206,7 @@ public class FabricCCService implements IFabricCCService
 	 */
 	private boolean registerAsset(final long 작품id, final long 소유자) {
 		// TODO
+	   
 		return false;
 	}
 
