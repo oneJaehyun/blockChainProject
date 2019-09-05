@@ -150,10 +150,9 @@ public class FabricService implements IFabricService
 	@Override
 	public List<FabricAsset> 작품이력조회(final long id){
 		List<FabricAsset> history = this.fabricCCService.queryHistory(id);
-
 		// TODO
-
-		return null;
+		//아직 어떤 정보로 정제해야할지 모름;;
+		return history;
 	}
 
 	/**
@@ -166,8 +165,8 @@ public class FabricService implements IFabricService
 	public List<Ownership> 소유자별조회(final long id)
 	{
 		// TODO
-
-		return null;
+		List<Ownership> 소유자별목록조회 = this.ownershipRepository.소유자별목록조회(id);
+		return 소유자별목록조회;
 	}
 
 

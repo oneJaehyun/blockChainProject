@@ -36,7 +36,7 @@ var auctionView = Vue.component('AuctionView', {
             var diff = endDate.getTime() - now.getTime();
 
             // 만약 종료일자가 지났다면 "경매 마감"을 표시한다.
-            if(diff < 0) {
+            if (diff < 0) {
                 return "경매 마감";
             } else {
                 // UNIX Timestamp를 자바스크립트 Date객체로 변환한다.
@@ -49,21 +49,21 @@ var auctionView = Vue.component('AuctionView', {
             }
         }
     },
-    mounted: function(){
+    mounted: function() {
         var scope = this;
 
-        auctionService.findAll(function(data){
+        auctionService.findAll(function(data) {
             var result = data;
 
             // 각 경매별 작품 정보를 불러온다.
-            function fetchData(start, end){
-                if(start == end) {
+            function fetchData(start, end) {
+                if (start == end) {
                     scope.auctions = result;
                 } else {
                     var id = result[start]['경매작품id'];
-                    workService.findById(id, function(work){
+                    workService.findById(id, function(work) {
                         result[start]['작품정보'] = work;
-                        fetchData(start+1, end);
+                        fetchData(start + 1, end);
                     });
                 }
             }
