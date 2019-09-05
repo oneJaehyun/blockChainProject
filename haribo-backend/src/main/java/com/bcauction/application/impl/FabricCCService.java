@@ -86,6 +86,7 @@ public class FabricCCService implements IFabricCCService
 	 * 여기에서 this.channel의 값을 초기화 한다
 	 */
 	private void loadChannel(){
+		
 		// TODO
 		
 	}
