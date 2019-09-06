@@ -45,6 +45,7 @@ public class FabricCCService implements IFabricCCService
 
 	/**
 	 * 패브릭 네트워크를 이용하기 위한 정보
+	 * 패브릭 공부
 	 */
 	@Value("${fabric.ca-server.url}")
 	private String CA_SERVER_URL;
@@ -86,6 +87,41 @@ public class FabricCCService implements IFabricCCService
 	 */
 	private void loadChannel(){
 		// TODO
+		Properties properties = getPropertiesWith(CA_SERVER_PEM_FILE);
+		HFCAClient hfcaClient = null;
+		CryptoSuite cryptoSuite = null;
+		try {
+			hfcaClient = HFCAClient.createNewInstance(CA_SERVER_URL, properties);
+			cryptoSuite = CryptoSuite.Factory.getCryptoSuite();
+			hfcaClient.setCryptoSuite(cryptoSuite);
+			FabricUser user = new FabricUser();
+			Enrollment adminEnrollment = hfcaClient.enroll("admin", USER_SECRET);
+			user.setEnrollment(adminEnrollment);
+			user.setMspId(ORG_MSP_NAME);
+			user.setAffiliation(ORG_NAME);
+			hfClient = HFClient.createNewInstance();
+			hfClient.setCryptoSuite(cryptoSuite);
+			hfClient.setUserContext(user);
+			properties =  getPropertiesWith(PEER_URL);
+			Peer peer = hfClient.newPeer(PEER_NAME,PEER_URL,properties);
+			EventHub eventHub = hfClient.newEventHub(PEER_NAME, PEER_URL, properties);
+			Channel channel = hfClient.newChannel(CHANNEL_NAME);
+
+			channel.addPeer(peer);
+			channel.addEventHub(eventHub);
+			Orderer orderer = hfClient.newOrderer(ORDERER_NAME, ORDERER_URL);
+			channel.addOrderer(orderer);
+			channel.initialize();
+
+		} catch (MalformedURLException | IllegalAccessException | InstantiationException | ClassNotFoundException
+				| CryptoException | org.hyperledger.fabric.sdk.exception.InvalidArgumentException
+				| NoSuchMethodException | InvocationTargetException | EnrollmentException
+				| InvalidArgumentException | TransactionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	private Properties getPropertiesWith(String filename) {
@@ -106,7 +142,7 @@ public class FabricCCService implements IFabricCCService
 	public FabricAsset registerOwnership(final long 소유자, final long 작품id){
 		if(this.channel == null)
 			loadChannel();
-
+		
 		boolean res = registerAsset(작품id, 소유자);
 		if(!res)
 			return null;
@@ -170,6 +206,7 @@ public class FabricCCService implements IFabricCCService
 	 */
 	private boolean registerAsset(final long 작품id, final long 소유자) {
 		// TODO
+	   
 		return false;
 	}
 

@@ -67,7 +67,7 @@ public class AuctionContractService implements IAuctionContractService {
 	@Override
 	public AuctionInfo 경매정보조회(final String 컨트랙트주소)
 	{
-		// TODO
+		// TODO//
 		return null;
 	}
 

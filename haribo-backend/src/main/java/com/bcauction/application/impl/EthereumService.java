@@ -1,5 +1,9 @@
 package com.bcauction.application.impl;
 
+<<<<<<< HEAD
+=======
+import java.math.BigDecimal;
+>>>>>>> develop
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,21 +14,46 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+<<<<<<< HEAD
+=======
+import org.springframework.transaction.annotation.Transactional;
+import org.web3j.crypto.Credentials;
+>>>>>>> develop
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.Request;
+<<<<<<< HEAD
 import org.web3j.protocol.core.methods.response.EthBlock;
 import org.web3j.protocol.core.methods.response.EthTransaction;
 import org.web3j.protocol.core.methods.response.Transaction;
 
 import com.bcauction.application.IEthereumService;
 import com.bcauction.domain.Address;
+=======
+import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.EthGetBalance;
+import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
+
+import org.web3j.protocol.core.methods.response.EthTransaction;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.tx.Transfer;
+import org.web3j.utils.Convert;
+
+import com.bcauction.application.IEthereumService;
+import com.bcauction.domain.Address;
+import com.bcauction.domain.CommonUtil;
+>>>>>>> develop
 import com.bcauction.domain.exception.ApplicationException;
 import com.bcauction.domain.repository.ITransactionRepository;
 import com.bcauction.domain.wrapper.Block;
 import com.bcauction.domain.wrapper.EthereumTransaction;
+<<<<<<< HEAD
 
+=======
+//시퀀스다이어그램 참고해서 구현하기!!
+>>>>>>> develop
 @Service
 public class EthereumService implements IEthereumService {
 
@@ -56,7 +85,7 @@ public class EthereumService implements IEthereumService {
 		try {
 			EthBlock latestBlockResponse;
 			latestBlockResponse
-					= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync().get();
+			= web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, fullFetched).sendAsync().get();
 
 			return latestBlockResponse.getBlock();
 		}catch (ExecutionException | InterruptedException e){
@@ -80,7 +109,11 @@ public class EthereumService implements IEthereumService {
 			EthBlock BlockResponse;
 			for (int i = 20; i >0; i--) {
 				BlockResponse
+<<<<<<< HEAD
 				= web3j.ethGetBlockByNumber( DefaultBlockParameter.valueOf(블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
+=======
+				= web3j.ethGetBlockByNumber(DefaultBlockParameter.valueOf(블록.getNumber().subtract(BigInteger.valueOf(i))), true).sendAsync().get();
+>>>>>>> develop
 				EthBlock.Block a = BlockResponse.getBlock();
 				list.add(Block.fromOriginalBlock(a));
 			}
@@ -95,7 +128,7 @@ public class EthereumService implements IEthereumService {
 	 * 최근 생성된 블록에 포함된 트랜잭션 조회
 	 * 이더리움 트랜잭션을 EthereumTransaction으로 변환해야 한다.
 	 * @return List<EthereumTransaction>
-	 */
+	 */                                                                                                                                           
 	@Override
 	public List<EthereumTransaction> 최근트랜잭션조회()
 	{
@@ -106,12 +139,21 @@ public class EthereumService implements IEthereumService {
 			for (int i = 0; i < 블록.getTransactions().size(); i++) {
 				list.add(EthereumTransaction.getEthereumTransaction(블록.getTransactions().get(i), 블록.getTimestamp(),true));
 			
+<<<<<<< HEAD
 			}
 			return list;
 		} catch (Exception e) {
 			throw new ApplicationException(e.getMessage());
 		}
 			
+=======
+				return list;
+			}
+		} catch (Exception e) {
+		}
+
+		return null;
+>>>>>>> develop
 	}
 
 	/**
@@ -133,6 +175,10 @@ public class EthereumService implements IEthereumService {
 		}catch (ExecutionException | InterruptedException e){
 			throw new ApplicationException(e.getMessage());
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 	}
 
 	/**
@@ -153,11 +199,11 @@ public class EthereumService implements IEthereumService {
 			throw new ApplicationException(e.getMessage());
 		}
 	}
-
+	// 
 	/**
 	 * 이더리움으로부터 해당 주소의 잔액을 조회하고
 	 * 동기화한 트랜잭션 테이블로부터 Address 정보의 trans 필드를 완성하여
-	 * 정보를 반환한다.
+	 * 정보를 반환한다.~~
 	 * @param 주소
 	 * @return Address
 	 */
@@ -165,6 +211,13 @@ public class EthereumService implements IEthereumService {
 	public Address 주소검색(String 주소)
 	{
 		// TODO
+		
+		try {
+			EthGetBalance balance =web3j.ethGetBalance(주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+			EthGetTransactionCount txCount = web3j.ethGetTransactionCount(주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+		} catch (ExecutionException | InterruptedException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -178,8 +231,28 @@ public class EthereumService implements IEthereumService {
 	@Override
 	public String 충전(final String 주소) // 특정 주소로 테스트 특정 양(5Eth) 만큼 충전해준다.
 	{
+
 		// TODO
-		return null;
+        try {
+        	Credentials credentials = CommonUtil.getCredential(ADMIN_WALLET_FILE, PASSWORD);
+            TransactionReceipt transactionReceipt = Transfer.sendFunds(web3j, credentials, 주소, BigDecimal.valueOf(5.0), Convert.Unit.ETHER).send();
+            return transactionReceipt.getTransactionHash();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+	}
+
+	@Override
+	public BigInteger getEthereumInfromation(String 지갑주소) throws Exception {
+		try {
+			 EthGetBalance a = web3j.ethGetBalance(지갑주소, DefaultBlockParameterName.LATEST).sendAsync().get();
+			 BigInteger tmp = new BigInteger("1000000000000000000");
+			 return a.getBalance().divide(tmp);
+		} catch (Exception ex) {
+			throw ex;
+		}
 	}
 
 }
