@@ -84,6 +84,7 @@ public class FabricCCService implements IFabricCCService
 	 * 구축해놓은 패브릭 네트워크의 채널을 가져오는
 	 * 기능을 구현한다.
 	 * 여기에서 this.channel의 값을 초기화 한다
+	 * 코드파악
 	 */
 	private void loadChannel(){
 		// TODO
